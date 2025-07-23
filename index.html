@@ -11,12 +11,15 @@
       text-align: center;
       padding: 50px;
       overflow-x: hidden;
+      position: relative;
     }
+
     h1 {
       font-size: 2em;
       margin-bottom: 10px;
       animation: fadeIn 3s ease;
     }
+
     .typewriter {
       display: inline-block;
       border-right: 2px solid #d63384;
@@ -88,6 +91,28 @@
       font-size: 2em;
       animation: fadeIn 2s ease-in-out infinite alternate;
     }
+
+    /* Bunga jatuh */
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -116,7 +141,23 @@
     🥰 YES! Aku seneng banget! Kita resmi jadian ya!
   </div>
 
+  <!-- Bunga-bunga jatuh -->
   <script>
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      flower.innerText = "🌸";
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 5000);
+    }
+
+    setInterval(createFlower, 300);
+
     function terima() {
       document.getElementById("jawaban").innerText = "🥰 YES! Aku seneng banget! Kita resmi jadian ya!";
       document.getElementById("jawaban").classList.remove("hidden");
