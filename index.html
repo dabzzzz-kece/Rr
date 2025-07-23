@@ -1,1 +1,134 @@
-p
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Rachel</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6f0, #ffe0ec);
+      font-family: 'Courier New', monospace;
+      color: #d63384;
+      text-align: center;
+      padding: 50px;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      animation: fadeIn 3s ease;
+    }
+    .typewriter {
+      display: inline-block;
+      border-right: 2px solid #d63384;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 4s steps(40, end), blink .75s step-end infinite;
+      font-size: 1.2em;
+      width: 0;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #d63384; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    .photos {
+      margin: 20px 0;
+    }
+
+    .photos img {
+      width: 150px;
+      height: auto;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .photos img:hover {
+      transform: scale(1.1);
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #ff66a3;
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      margin: 10px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0558a;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .love {
+      font-size: 2em;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hai Rachel 😊</h1>
+  <div class="typewriter" style="animation-delay: 1s;">
+    Aku cuma mau bilang sesuatu yang penting banget...
+  </div>
+
+  <div class="photos">
+    <img src="rachel.jpg" alt="Rachel">
+    <img src="IMG-20250724-WA0001.jpg" alt="Rachel">
+    <img src="IMG-20250724-WA0002.jpg" alt="Rachel">
+  </div>
+
+  <p style="margin-top: 30px; font-size: 1.2em;">
+    Aku udah lama suka sama kamu...<br>
+    Mau gak jadi pacarku?
+  </p>
+
+  <div class="buttons">
+    <button onclick="terima()">Mau 💖</button>
+    <button onclick="tolak()">Gak Mau 😢</button>
+  </div>
+
+  <div id="jawaban" class="hidden love">
+    🥰 YES! Aku seneng banget! Kita resmi jadian ya!
+  </div>
+
+  <script>
+    function terima() {
+      document.getElementById("jawaban").innerText = "🥰 YES! Aku seneng banget! Kita resmi jadian ya!";
+      document.getElementById("jawaban").classList.remove("hidden");
+    }
+
+    function tolak() {
+      alert("Yakin gak mau? Coba pikir lagi deh 😳");
+      setTimeout(() => {
+        alert("Gak bisa nolak sih sebenernya 😏");
+        terima();
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
